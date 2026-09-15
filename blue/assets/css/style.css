@@ -59,11 +59,18 @@
   --bg-contact-details: rgba(0, 0, 0, 0.5);
   --bg-featured-aside: rgba(0, 0, 0, 0.45);
   --bg-portrait-ping: rgba(0, 0, 0, 0.6);
-  --bg-overlay-gradient: linear-gradient(to top, rgba(6, 6, 8, 0.95) 0%, rgba(6, 6, 8, 0.7) 65%, transparent 100%);
-  --bg-contact-gradient: radial-gradient(circle at top, rgba(229, 9, 20, 0.15) 0%, rgba(10, 11, 14, 0.95) 75%);
+  --bg-overlay-gradient: linear-gradient(to top, rgba(6, 6, 8, 0.95) 0%, rgba(6, 6, 8, 0.7) 65%, transparent 100%);--bg-contact-gradient: radial-gradient(
+    circle at top,
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(10, 11, 14, 0.95) 75%
+);
   --bg-expertise-gradient: linear-gradient(180deg, var(--bg-surface-1) 0%, var(--bg-surface-0) 100%);
   --bg-about-gradient: linear-gradient(145deg, var(--bg-surface-1), var(--bg-surface-0));
-  --bg-credential-featured: linear-gradient(135deg, rgba(229, 9, 20, 0.08) 0%, var(--bg-surface-1) 100%);
+ --bg-credential-featured: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.08) 0%,
+    var(--bg-surface-1) 100%
+);
   --bg-timeline-gradient: linear-gradient(180deg, var(--red) 0%, var(--border-card) 85%, transparent 100%);
   --bg-red-gradient: linear-gradient(135deg, var(--red), var(--red-gradient-end));
   --bg-hero-gradient: linear-gradient(135deg, #ffffff 40%, var(--red) 100%);
@@ -821,7 +828,7 @@ a {
 }
 
 .cloud-badge.highlight {
-  background: rgba(229, 9, 20, 0.15);
+  background: rgba(59, 130, 246, 0.15);
   border-color: var(--border-red-strong);
   color: var(--text-white);
   font-weight: 600;
@@ -1671,4 +1678,163 @@ a {
 
         border-radius: 14px;
     }
+}
+.contact-float {
+    position: fixed;
+    right: 22px;
+    bottom: 90px;
+    z-index: 9999;
+
+    width: 60px;
+    height: 60px;
+}
+
+.whatsapp-float {
+    position: absolute;
+    inset: 0;
+
+    width: 60px;
+    height: 60px;
+
+    background: #229ed9;
+    color: #fff;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+    text-decoration: none;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.whatsapp-float:hover {
+    background: #20ba5a;
+    color: #fff;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 8px 25px rgba(37, 211, 102, 0.35);
+}
+
+
+.contact-options {
+    position: absolute;
+
+    right: 5px;
+    bottom: 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+
+    pointer-events: none;
+}
+
+
+.contact-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+
+    opacity: 0;
+    transform: translateY(15px) scale(0.7);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.contact-option i {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #fff;
+    font-size: 23px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.25);
+
+    transition: transform 0.25s ease;
+}
+
+
+.contact-option span {
+    padding: 7px 12px;
+
+    border-radius: 8px;
+
+    background: rgba(20, 20, 20, 0.9);
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+.contact-option.whatsapp i {
+    background: #25d366;
+}
+
+.contact-option.messenger i {
+    background: #0084ff;
+}
+
+.contact-option.telegram i {
+    background: #229ed9;
+}
+
+
+.contact-option:hover i {
+    transform: scale(1.12);
+}
+
+.contact-float:hover .contact-option {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+
+.contact-float:hover .contact-option:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.contact-float:hover .contact-option:nth-child(2) {
+    transition-delay: 0.10s;
+}
+
+.contact-float:hover .contact-option:nth-child(3) {
+    transition-delay: 0.15s;
+}
+
+
+.contact-float:not(:hover) .contact-option {
+    transition-delay: 0s;
 }
